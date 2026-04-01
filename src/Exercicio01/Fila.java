@@ -1,18 +1,40 @@
-import java.util.Arrays;
+package Exercicio01;
 
-public class Fila<T> {
+public class Fila<Documento> {
 
     private Object[] elementos;
     private int tamanho;
 
 
+    public Object[] getElementos() {
+        return elementos;
+    }
+
+    public void setElementos(Object[] elementos) {
+        this.elementos = elementos;
+    }
+
+    public int getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(int tamanho) {
+        this.tamanho = tamanho;
+    }
+
     public Fila(int capacidade) {
-        this.elementos = (T[])new Object[capacidade];
+        this.elementos = (Documento[])new Object[capacidade];
         this.tamanho = tamanho;
     }
 
 
-    public void enfileira(T elemento){
+
+    public Documento espia(){
+        return (Documento) this.elementos[0];
+
+    }
+
+    public void enfileira(Documento elemento){
         this.aumentaCapacidade();
         elementos[tamanho] = elemento;
         tamanho++;
@@ -22,13 +44,13 @@ public class Fila<T> {
         return tamanho == 0;
     }
 
-    public T desenfileira(){
+    public Documento desenfileirar(){
         if (estaVazia()){
-            System.out.println("Fila está vazia.");
+            System.out.println("Exercicio01.Fila está vazia.");
             return null;
         }
 
-        T temp = (T) this.elementos[0];
+        Documento temp = (Documento) this.elementos[0];
 
 
         for (int i = 0; i < tamanho - 1; i++) {
@@ -44,9 +66,9 @@ public class Fila<T> {
 
     public void aumentaCapacidade(){
         if (this.tamanho == this.elementos.length){
-            T[] novafila = (T[]) new Object[this.elementos.length * 2];
+            Documento[] novafila = (Documento[]) new Object[this.elementos.length * 2];
             for (int i = 0; i < this.tamanho; i++) {
-                novafila[i] = (T) this.elementos[i];
+                novafila[i] = (Documento) this.elementos[i];
             }
             this.elementos = novafila;
         }
