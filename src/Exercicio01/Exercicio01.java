@@ -1,9 +1,11 @@
 package Exercicio01;
 
+
+
 public class Exercicio01 {
     public static void main(String[] args) {
 
-        Fila<Documento> fila = new Fila<>(5);
+        Fila<Documento> fila = new Fila<Documento>(5);
 
         fila.enfileira(new Documento("Doc1", 10));
         fila.enfileira(new Documento("Doc2", 5));

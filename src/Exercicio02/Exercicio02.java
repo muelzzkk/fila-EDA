@@ -1,5 +1,7 @@
 package Exercicio02;
 
+import Exercicio01.Fila;
+
 public class Exercicio02 {
     public static void main(String[] args) {
 
@@ -15,7 +17,7 @@ public class Exercicio02 {
         System.out.println(fila);
 
         while(!fila.estaVazia()){
-            Cliente c = fila.desenfileira();
+            Cliente c = fila.desenfileirar();
             System.out.println("Chamando: " + c);
         }
 

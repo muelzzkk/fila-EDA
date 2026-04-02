@@ -1,6 +1,6 @@
 package Exercicio01;
 
-public class Fila<Documento> {
+public class Fila<T> {
 
     private Object[] elementos;
     private int tamanho;
@@ -23,18 +23,18 @@ public class Fila<Documento> {
     }
 
     public Fila(int capacidade) {
-        this.elementos = (Documento[])new Object[capacidade];
+        this.elementos = (T[])new Object[capacidade];
         this.tamanho = tamanho;
     }
 
 
 
-    public Documento espia(){
-        return (Documento) this.elementos[0];
+    public T espia(){
+        return (T) this.elementos[0];
 
     }
 
-    public void enfileira(Documento elemento){
+    public void enfileira(T elemento){
         this.aumentaCapacidade();
         elementos[tamanho] = elemento;
         tamanho++;
@@ -44,13 +44,13 @@ public class Fila<Documento> {
         return tamanho == 0;
     }
 
-    public Documento desenfileirar(){
+    public T desenfileirar(){
         if (estaVazia()){
             System.out.println("Exercicio01.Fila está vazia.");
             return null;
         }
 
-        Documento temp = (Documento) this.elementos[0];
+        T temp = (T) this.elementos[0];
 
 
         for (int i = 0; i < tamanho - 1; i++) {
@@ -66,9 +66,9 @@ public class Fila<Documento> {
 
     public void aumentaCapacidade(){
         if (this.tamanho == this.elementos.length){
-            Documento[] novafila = (Documento[]) new Object[this.elementos.length * 2];
+            T[] novafila = (T[])  new Object[this.elementos.length * 2];
             for (int i = 0; i < this.tamanho; i++) {
-                novafila[i] = (Documento) this.elementos[i];
+                novafila[i] = (T) this.elementos[i];
             }
             this.elementos = novafila;
         }
