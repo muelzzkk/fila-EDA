@@ -24,7 +24,7 @@ public class Fila<T> {
 
     public Fila(int capacidade) {
         this.elementos = (T[])new Object[capacidade];
-        this.tamanho = tamanho;
+        this.tamanho = 0;
     }
 
 
@@ -73,6 +73,23 @@ public class Fila<T> {
             this.elementos = novafila;
         }
     }
+
+    public void enfileiraComPrioridade(T elemento) {
+
+        this.aumentaCapacidade();
+
+        int i = tamanho - 1;
+
+
+        while (i >= 0 && ((Comparable<T>) elementos[i]).compareTo(elemento) > 0) {
+            elementos[i + 1] = elementos[i];
+            i--;
+        }
+
+        elementos[i + 1] = elemento;
+        tamanho++;
+    }
+
 
 
     @Override

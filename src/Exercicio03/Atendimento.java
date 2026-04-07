@@ -20,11 +20,5 @@ public class Atendimento {
             System.out.println("-----------------------------");
 
         }
-
-
-
-
-
-
     }
 }
